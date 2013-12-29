@@ -26,6 +26,13 @@ class Config
 
     public function get($section, $option)
     {
+        if(defined('MULTIOS') && $section == 'git' &&
+            ($option == 'client' ||
+                $option == "repositories" ||
+                    $option == "hidden")){
+            $option = $this->getOSprefix().$option;
+        }
+
         if (!array_key_exists($section, $this->data)) {
             return false;
         }
@@ -72,6 +79,20 @@ class Config
 
         if ($atLeastOneWrong) {
             die("One or more of the supplied repository paths appears to be wrong. Please, check the config file");
+        }
+    }
+
+    private function getOSprefix(){
+        $uname = strtolower(php_uname());
+
+        if (strpos($uname, "darwin") !== FALSE) {
+            return "mac_";
+        } else if (strpos($uname, "win") !== FALSE) {
+            return "win_";
+        } else if (strpos($uname, "linux") !== FALSE) {
+            return "lin_";
+        } else {
+            return "";
         }
     }
 }

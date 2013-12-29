@@ -1,15 +1,29 @@
 [git]
+multi_platform = false;
 client = '/usr/bin/git' ; Your git executable path
 default_branch = 'master' ; Default branch when HEAD is detached
 repositories[] = '/home/git/repositories/' ; Path to your repositories
                                            ; If you wish to add more repositories, just add a new line
-
-; WINDOWS USERS
-;client = '"C:\Program Files (x86)\Git\bin\git.exe"' ; Your git executable path
-;repositories[] = 'C:\Path\to\Repos\' ; Path to your repositories
-
 ; You can hide repositories from GitList, just copy this for each repository you want to hide
 ; hidden[] = '/home/git/repositories/BetaTest'
+
+; If you wish to run a single gitlist installation on multiple OSes
+; LINUX USERS
+; lin_client = '/usr/bin/git' ; Your git executable path
+; lin_repositories[] = '/Path/to/Repos/' ; Path to your repositories
+; lin_hidden[] = '/home/git/repositories/BetaTest'
+										   
+; MAC USERS
+; mac_client = '/usr/bin/git' ;
+; mac_repositories[] = '/Path/to/Repos/' ; Path to your repositories
+; mac_hidden[] = '/home/git/repositories/BetaTest'
+										   
+; WINDOWS USERS
+; win_client = '"C:\Program Files (x86)\Git\bin\git.exe"' ; Your git executable path
+; win_repositories[] = 'C:\Path\to\Repos\' ; Path to your repositories
+; win_hidden[] = '/home/git/repositories/BetaTest'
+
+
 
 [app]
 debug = false

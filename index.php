@@ -26,6 +26,10 @@ if ($config->get('Date', 'timezone')) {
     date_default_timezone_set($config->get('Date', 'timezone'));
 }
 
+if ($config->get('git','multi_platform')){
+    define("MULTIOS",true);
+}
+
 $app = require 'boot.php';
 $app->run();
 
