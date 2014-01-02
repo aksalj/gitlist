@@ -6,20 +6,30 @@
 
 <div class="container">
 
-    {% for repository in repositories %}
-    <div class="repository">
-        <div class="repository-header">
-            <i class="icon-folder-open icon-spaced"></i> <a href="{{ path('repository', {repo: repository.name}) }}">{{ repository.name }}</a>
-            <a href="{{ path('rss', {repo: repository.name, branch: 'master'}) }}"><i class="rss pull-right"></i></a>
+    {% for folder in folders %}
+
+        <hr/>
+
+        <h1>{{ folder.folder_name }}</h1>
+
+        <hr/>
+
+        {% for repository in folder.repositories %}
+        <div class="repository">
+            <div class="repository-header">
+                <i class="icon-folder-open icon-spaced"></i> <a href="{{ path('repository', {repo: repository.name}) }}">{{ repository.display_name }}</a>
+                <a href="{{ path('rss', {repo: repository.name, branch: 'master'}) }}"><i class="rss pull-right"></i></a>
+            </div>
+            <div class="repository-body">
+                {% if repository.description %}
+                <p>{{ repository.description }}</p>
+                {% else %}
+                <p>There is no repository description file. Please, create one to remove this message.</p>
+                {% endif %}
+            </div>
         </div>
-        <div class="repository-body">
-            {% if repository.description %}
-            <p>{{ repository.description }}</p>
-            {% else %}
-            <p>There is no repository description file. Please, create one to remove this message.</p>
-            {% endif %}
-        </div>
-    </div>
+        {% endfor %}
+
     {% endfor %}
 
     <hr />

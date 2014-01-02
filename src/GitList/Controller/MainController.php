@@ -17,7 +17,7 @@ class MainController implements ControllerProviderInterface
             $repositories = $app['git']->getRepositories($app['git.repos']);
 
             return $app['twig']->render('index.twig', array(
-                'repositories'   => $repositories,
+                /*'repositories'   => $repositories, */'folders' => $this->_groupIntoFolders($repositories)
             ));
         })->bind('homepage');
 
@@ -72,5 +72,29 @@ class MainController implements ControllerProviderInterface
           ->bind('rss');
 
         return $route;
+    }
+
+    private function _groupIntoFolders($repositories){
+        $folders = array();
+        foreach ($repositories as $repo){
+            $parts = explode("/",$repo['name']);
+            if(count($parts) > 1){
+                $folder = $parts[0];
+                $repo['display_name'] = $parts[1];
+
+                if(array_key_exists($folder,$folders)){
+                    array_push($folders[$folder]['repositories'],$repo);
+                }else{
+                    $entry = array("folder_name" => str_replace(".git","",$folder), "repositories" => array($repo));
+                    $folders[$folder] = $entry;
+                }
+            }else{
+                $folder = $repo['name'];
+                $repo['display_name'] = $folder;
+                $folders[$folder] = array("folder_name" => str_replace(".git","",$folder), "repositories" => array($repo));
+            }
+        }
+
+        return $folders;
     }
 }
