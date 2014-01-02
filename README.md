@@ -1,5 +1,6 @@
 # GitList: an elegant git repository viewer
-[![Build Status](https://secure.travis-ci.org/klaussilveira/gitlist.png)](http://travis-ci.org/klaussilveira/gitlist)
+
+######`Important`: This is a custom version with its own set of features not officially supported.
 
 GitList is an elegant and modern web interface for interacting with multiple git repositories. It allows you to browse repositories using your favorite browser, viewing files under different revisions, commit history, diffs. It also generates RSS feeds for each repository, allowing you to stay up-to-date with the latest changes anytime, anywhere. GitList was written in PHP, on top of the [Silex](http://silex.sensiolabs.org/) microframework and powered by the Twig template engine. This means that GitList is easy to install and easy to customize. Also, the GitList gorgeous interface was made possible due to [Bootstrap](http://twitter.github.com/bootstrap/). 
 
@@ -11,15 +12,8 @@ GitList is an elegant and modern web interface for interacting with multiple git
 * RSS feeds
 * Syntax highlighting
 * Repository statistics
+* One istallation, multiple platforms
 
-## Screenshots
-[![GitList Screenshot](http://dl.dropbox.com/u/62064441/th1.jpg)](http://cloud.github.com/downloads/klaussilveira/gitlist/1.jpg)
-[![GitList Screenshot](http://dl.dropbox.com/u/62064441/th2.jpg)](http://cloud.github.com/downloads/klaussilveira/gitlist/2.jpg)
-[![GitList Screenshot](http://dl.dropbox.com/u/62064441/th3.jpg)](http://cloud.github.com/downloads/klaussilveira/gitlist/3.jpg)
-[![GitList Screenshot](http://dl.dropbox.com/u/62064441/th4.jpg)](http://cloud.github.com/downloads/klaussilveira/gitlist/4.jpg)
-[![GitList Screenshot](http://dl.dropbox.com/u/62064441/th5.jpg)](http://cloud.github.com/downloads/klaussilveira/gitlist/5.jpg)
-
-You can also see a live demo [here](http://gitlist-khornberg.rhcloud.com/).
 
 ## Requirements
 In order to run GitList on your server, you'll need:
@@ -51,26 +45,20 @@ That's it, installation complete! If you're having problems, check the [Troubles
 ## License
 [New BSD license](http://www.opensource.org/licenses/bsd-license.php)
 
-## Todo
-* improve the current test code coverage
-* test the interface
-* submodule support
-* multilanguage support
-
 ## Development
 GitList uses [Composer](http://getcomposer.org/) to manage dependencies and [Ant](http://ant.apache.org/) to build the project. In order to run all the targets in the build script, you will need [PHPUnit](http://www.phpunit.de/), [phpcpd](https://github.com/sebastianbergmann/phpcpd), [phploc](https://github.com/sebastianbergmann/phploc), [PHPMD](http://phpmd.org/) and [PHP_Depend](http://pdepend.org).
 
 Once you have all the dependencies set, you can clone the repository and run Ant:
 
 ```
-git clone https://github.com/klaussilveira/gitlist.git
+git clone https://github.com/aksalj/gitlist.git
 ant
 ```
 
 If you just want to get the project dependencies, instead of building everything:
 
 ```
-git clone https://github.com/klaussilveira/gitlist.git
+git clone https://github.com/aksalj/gitlist.git
 curl -s http://getcomposer.org/installer | php
 php composer.phar install
 ```
