@@ -12,7 +12,7 @@ GitList is an elegant and modern web interface for interacting with multiple git
 * RSS feeds
 * Syntax highlighting
 * Repository statistics
-* One istallation, multiple platforms
+* One installation, multiple platforms
 
 
 ## Requirements
