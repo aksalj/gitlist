@@ -26,7 +26,7 @@ class Config
 
     public function get($section, $option)
     {
-        if(defined('MULTIOS') && $section == 'git' &&
+        if(defined('MULTI_PLATFORM') && $section == 'git' &&
             ($option == 'client' ||
                 $option == "repositories" ||
                     $option == "hidden")){

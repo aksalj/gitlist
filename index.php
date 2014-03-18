@@ -27,7 +27,7 @@ if ($config->get('Date', 'timezone')) {
 }
 
 if ($config->get('git','multi_platform')){
-    define("MULTIOS",true);
+    define("MULTI_PLATFORM",true);
 }
 
 $app = require 'boot.php';

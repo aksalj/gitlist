@@ -84,17 +84,17 @@ class MainController implements ControllerProviderInterface
 
                 if(array_key_exists($folder,$folders)){
                     array_push($folders[$folder]['repositories'],$repo);
+                    $folders[$folder]['repo_count']++;
                 }else{
-                    $entry = array("folder_name" => str_replace(".git","",$folder), "repositories" => array($repo));
+                    $entry = array("folder_name" => str_replace(".git","",$folder), "repositories" => array($repo), "repo_count"=>1);
                     $folders[$folder] = $entry;
                 }
             }else{
                 $folder = $repo['name'];
                 $repo['display_name'] = $folder;
-                $folders[$folder] = array("folder_name" => str_replace(".git","",$folder), "repositories" => array($repo));
+                $folders[$folder] = array("folder_name" => str_replace(".git","",$folder), "repositories" => array($repo), "repo_count"=>1);
             }
         }
-
         return $folders;
     }
 }

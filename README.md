@@ -41,6 +41,7 @@ That's it, installation complete! If you're having problems, check the [Troubles
 
 ## Authors and contributors
 * [Klaus Silveira](http://www.klaussilveira.com) (Creator, developer)
+* [Salama A.B.](http://www.aksalj.me) (Developer)
 
 ## License
 [New BSD license](http://www.opensource.org/licenses/bsd-license.php)

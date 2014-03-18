@@ -4,18 +4,27 @@
 {% block body %}
 {% include 'navigation.twig' %}
 
-<div class="container">
+<div class="container cnt">
+
+    <div class="summary">
+        <h3>Summary</h3>
+        <ul class="nav-list">
+            {%  for folder in folders %}
+            <li><a href="#{{ folder.folder_name }}">{{ folder.folder_name }}</a></li>
+            {%  endfor %}
+        </ul>
+    </div>
+
 
     {% for folder in folders %}
 
-        <hr/>
-
-        <h1>{{ folder.folder_name }}</h1>
-
-        <hr/>
+        <div class="span12">
+            <h1 id="{{ folder.folder_name }}">{{ folder.folder_name }}<span class="badge pull-right">{{ folder.repo_count }}</span></h1>
+            <hr/>
+        </div>
 
         {% for repository in folder.repositories %}
-        <div class="repository">
+        <div class="repository span11 pull-right">
             <div class="repository-header">
                 <i class="icon-folder-open icon-spaced"></i> <a href="{{ path('repository', {repo: repository.name}) }}">{{ repository.display_name }}</a>
                 <a href="{{ path('rss', {repo: repository.name, branch: 'master'}) }}"><i class="rss pull-right"></i></a>
@@ -32,8 +41,9 @@
 
     {% endfor %}
 
-    <hr />
-
-    {% include 'footer.twig' %}
+    <div class="span12">
+        <hr />
+        {% include 'footer.twig' %}
+    </div>
 </div>
 {% endblock %}
